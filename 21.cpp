@@ -45,6 +45,9 @@ int main(){
 						break;
 				}
 		while(op!=0);
+		if(salir==1){
+			return EXIT_SUCCESS;
+		}
 	cout<<"Desea otra carta\n";
 	cin>>op;
 	switch(op){
