@@ -41,13 +41,17 @@ int main(){
 								cout<<"La Suma actual de sus cartas es de "<<sumaj<<endl;
 								break;
 							}
-					}
-						break;
+				
+					case 0:
+							salir=2;
+							continue;
 				}
+		}
 		while(op!=0);
 		if(salir==1){
 			return EXIT_SUCCESS;
 		}
+	if(salir!=2){
 	cout<<"Desea otra carta\n";
 	cin>>op;
 	switch(op){
@@ -57,6 +61,8 @@ int main(){
 				break;
 		case 0: break;
 	}
+}
+else{
 	cout<<"La Suma Total de sus Cartas es de "<<sumaj<<endl;
 	crupier[2]=1+rand()%12;
 	sumac+=crupier[2];
@@ -65,5 +71,6 @@ int main(){
 		cout<<"Ha perdido por Noob"<<endl;
 	}else{
 		cout<<"Ha ganado Baia Baia"<<endl;
-	}		
-}	
+	}
+}
+}
