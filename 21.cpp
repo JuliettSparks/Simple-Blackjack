@@ -1,6 +1,5 @@
 #include <iostream>
 #include <time.h>
-#include <stdio.h>
 #include <stdlib.h>
 using namespace std;
 int main(){
@@ -12,8 +11,8 @@ int main(){
 	int op,salir;
 	srand(time(NULL));
 	for(int i=0; i<2; i++){
-		opjugador[i]=1+rand()%12;
-		crupier[i]=1+rand()%12;
+		opjugador[i]=2+rand()%10;
+		crupier[i]=2+rand()%10;
 	}
 	cout<<"Estas son vuestras cartas\n";
 	for(int i=0; i<2; i++){
@@ -25,46 +24,55 @@ int main(){
 		cout<<char(168)<<"Desea otra carta?\n";
 		cout<<"Presione 1 para si o 0 para no\n";
 		cin>>op;
-		do{
 			switch(op){
 				case 1: 
-							opjugador[2]=1+rand()%12;
+							opjugador[2]=2+rand()%10;
 							sumaj+=opjugador[2];
 							cout<<"Su Nueva Carta es\n";
 							cout<<"["<<opjugador[2]<<"]\n";
 							if(sumaj>21){
 								cout<<"Ha perdido lo siento\n";
 								cout<<"Es un Noob\n";
-								break;
 								salir=1;
+								return EXIT_SUCCESS;
+								break;
 							}else{
 								cout<<"La Suma actual de sus cartas es de "<<sumaj<<endl;
 								break;
 							}
 				
 					case 0:
-							salir=2;
-							continue;
-				}
+							crupier[2]=2+rand()%10;
+							sumac+=crupier[2];
+								cout<<"La Suma del Crupier es de "<<sumac<<endl;
+	if(sumac==21){
+		cout<<"Ha perdido por Noob"<<endl;
+		return EXIT_SUCCESS;
+	}else{
+		cout<<"Ha ganado Baia Baia"<<endl;
+		return EXIT_SUCCESS;
+	}
+	if(sumac>sumaj && sumac<21){
+		cout<<"Ha perdido por Noob"<<endl;
+		return EXIT_SUCCESS;
+	}else{
+		cout<<"Ha ganado Baia Baia"<<endl;
+		return EXIT_SUCCESS;
+	}
 		}
-		while(op!=0);
-		if(salir==1){
-			return EXIT_SUCCESS;
-		}
-	if(salir!=2){
+			if(salir==1){
+				return EXIT_SUCCESS;
+			}	
+	if(salir!=2 && salir!=1){
 	cout<<"Desea otra carta\n";
 	cin>>op;
-	switch(op){
-		case 1: opjugador[3]=rand()%12;
+	if(op==1){
+		opjugador[3]=2+rand()%10;
 				cout<<"["<<opjugador[3]<<"]\n";
 				sumaj+=opjugador[3];
-				break;
-		case 0: break;
-	}
-}
-else{
-	cout<<"La Suma Total de sus Cartas es de "<<sumaj<<endl;
-	crupier[2]=1+rand()%12;
+				cout<<"La Suma actual de sus cartas es de "<<sumaj<<endl;
+				//op=2;
+					crupier[2]=2+rand()%10;
 	sumac+=crupier[2];
 	cout<<"La Suma del Crupier es de "<<sumac<<endl;
 	if(sumac==21){
@@ -72,5 +80,28 @@ else{
 	}else{
 		cout<<"Ha ganado Baia Baia"<<endl;
 	}
+	if(sumac>sumaj && sumac<21)
+	cout<<"Ha perdido por Noob"<<endl;
+	}
+	else{
+	cout<<"La Suma Total de sus Cartas es de "<<sumaj<<endl;
+	crupier[2]=2+rand()%10;
+	sumac+=crupier[2];
+	cout<<"La Suma del Crupier es de "<<sumac<<endl;
+	if(sumac==21){
+		cout<<"Ha perdido por Noob"<<endl;
+		return EXIT_SUCCESS;
+	}else{
+		cout<<"Ha ganado Baia Baia"<<endl;
+		return EXIT_SUCCESS;
+	}
+	if(sumac>sumaj && sumac<21){
+		cout<<"Ha perdido por Noob"<<endl;
+		return EXIT_SUCCESS;
+	}else{
+		cout<<"Ha ganado Baia Baia"<<endl;
+		return EXIT_SUCCESS;
+	}
+}
 }
 }
